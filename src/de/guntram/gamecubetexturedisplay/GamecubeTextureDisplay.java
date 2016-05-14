@@ -40,7 +40,7 @@ public class GamecubeTextureDisplay implements ActionListener , MouseMotionListe
         canvas=new JCanvas(w, h);
         canvas.setPalette(palette, 0);
 //        try {
-            texReader.readImage(filePos, canvas.getBuffer(), w*h);
+            texReader.readImage(filePos, canvas.getBuffer(), w, h);
 //        } catch (IOException ex) {
 //            Arrays.fill(canvas.getBuffer(), (byte)0);
 //        }

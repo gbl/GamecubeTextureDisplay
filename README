@@ -1,0 +1,3 @@
+Run:
+java -jar dist/GamecubeTextureDisplay.jar AFS73DB.tmp_0.bin 512 256 0
+java -jar dist/GamecubeTextureDisplay.jar AFS16A3.tmp_0.bin 256 256 0

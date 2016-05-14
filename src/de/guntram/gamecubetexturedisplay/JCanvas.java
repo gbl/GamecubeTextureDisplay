@@ -36,17 +36,17 @@ public class JCanvas extends JPanel {
     }
     
     public void setPalette(byte[] rgb565, int startpos) {
-        final int redbits=5, grnbits=6, blubits=5;
+        final int redbits=5, grnbits=5, blubits=5;
         palette=new byte[256*3];
         int posRgb=0, posPal=0;
         
         while (posPal<256*3 && posRgb+startpos<rgb565.length) {
             int word;
-            word=  rgb565[startpos + posRgb++]&0xff;
-            word|= (rgb565[startpos + posRgb++]&0xff)<<8;
-            palette[posPal+0]=(byte) ((word & ((1<<redbits)-1))<<(8-redbits));  word>>>=redbits;
-            palette[posPal+1]=(byte) ((word & ((1<<grnbits)-1))<<(8-grnbits));  word>>>=grnbits;
+            word  = (rgb565[startpos + posRgb++]&0xff)<<8;
+            word |= (rgb565[startpos + posRgb++]&0xff)   ;
             palette[posPal+2]=(byte) ((word & ((1<<blubits)-1))<<(8-blubits));  word>>>=blubits;
+            palette[posPal+1]=(byte) ((word & ((1<<grnbits)-1))<<(8-grnbits));  word>>>=grnbits;
+            palette[posPal+0]=(byte) ((word & ((1<<redbits)-1))<<(8-redbits));  word>>>=redbits;
             posPal+=3;
         }
     }
